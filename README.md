@@ -8,7 +8,7 @@
 # Getting started
 - Clone the repository
 ```
-git clone  <git lab template url> <project_name>
+git clone  https://github.com/rios-matias/introduccion-nosql
 ```
 - Install dependencies
 ```
@@ -21,11 +21,15 @@ npm start
 ```
   Navigate to `http://localhost:8000`
 
-- API Document endpoints
+- Swagger endpoints
 
   swagger Spec Endpoint : http://localhost:8000/api-docs 
 
   swagger-ui  Endpoint : http://localhost:8000/docs 
+  
+- API Enpoints
+  
+  
 
 
 # Javascript Script + Node + MongoDB
