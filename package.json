@@ -1,0 +1,26 @@
+{
+    "name": "introduccion-nosql",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node src/server.js",
+        "dev": "nodemon src/server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rios-matias/introduccion-nosql.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/rios-matias/introduccion-nosql/issues"
+    },
+    "homepage": "https://github.com/rios-matias/introduccion-nosql#readme",
+    "dependencies": {
+        "express": "^4.18.1",
+        "swagger-jsdoc": "^6.2.1",
+        "swagger-ui-express": "^4.5.0"
+    }
+}
