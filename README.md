@@ -1,4 +1,4 @@
-# introduccion-nosql
+# nosql-mongodb-practice
 
 # Pre-requisites
 - Install [Node.js](https://nodejs.org/en/) 
@@ -8,11 +8,11 @@
 # Getting started
 - Clone the repository
 ```
-git clone  https://github.com/rios-matias/introduccion-nosql
+git clone  https://github.com/rios-matias/nosql-mongodb-practice
 ```
 - Install dependencies
 ```
-cd <project_name>
+cd nosql-mongodb-practice
 npm install
 ```
 - Run the project
