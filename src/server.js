@@ -1,12 +1,20 @@
-const express = require("express");
-const swaggerJsDoc = require("swagger-jsdoc");
-const swaggerUi = require("swagger-ui-express");
+const servicesRouter = require('./routes/services')
 
-const app = express();
-const port = process.env.PORT || 8000;
+const mongoose = require("mongoose");
+const express = require("express")
+const swaggerJsDoc = require("swagger-jsdoc")
+const swaggerUi = require("swagger-ui-express")
+require("dotenv").config();
+
+
+const app = express()
+const port = process.env.PORT || 8000
 
 // middlewares
-app.use(express.json());
+app.use(express.json())
+
+//routes
+app.use('/services', servicesRouter)
 
 // Extended: https://swagger.io/specification/#infoObject
 const swaggerOptions = {
@@ -22,29 +30,22 @@ const swaggerOptions = {
         }
     },
     // ['.routes/*.js']
-    apis: ["src/server.js"]
+    apis: ["src/routes/*.js"]
 };
 
-const swaggerDocs = swaggerJsDoc(swaggerOptions);
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+const swaggerDocs = swaggerJsDoc(swaggerOptions)
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 
-// Routes
-/**
- * @swagger
- * /:
- *  get:
- *    description: Welcome endpoint 
- *    responses:
- *      '200':
- *        description: Successful response
- */
-app.get("/", (req, res) => {
-    res.send("Welcome to my API");
-});
 
+
+//database connection
+mongoose
+    .connect(process.env.MONGODB_CONNECTION)
+    .then(() => console.log("Connected to MongoDB Atlas"))
+    .catch((error) => console.error(error));
 
 // server listening
 app.listen(port,
     () => {
         console.log("Server listening to ", port)
-    });
+    })
