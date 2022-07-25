@@ -1,4 +1,4 @@
-const serviceSchema = require('../models/service')
+import serviceSchema from '../models/service'
 
 const getAllServices = async(req, res) => {
     serviceSchema
