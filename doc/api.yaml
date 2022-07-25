@@ -1,0 +1,135 @@
+swagger: "2.0"
+info:
+  description: ""
+  version: "1.0.0"
+  title: "nosql practice- MongoDB"
+paths:
+  /services:
+    get:
+      tags:
+      - Services
+      summary: Get all services
+      responses:
+        '200':
+          description: All services sended successfully
+    post:
+      tags:
+      - Services
+      summary: Use create a new service
+      parameters:
+      - name: service
+        in: body
+        description: new service params
+        required: true
+        schema:
+          $ref: "#/definitions/User"
+
+      responses:
+       '200':
+        description: Successfully created service
+        
+    
+    
+        
+  /services/{id}:
+    get:
+      tags:
+      - Services
+      summary: get service by id
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        type: number
+        name: id
+        description: id of the service to find
+        required: true
+      responses:
+        '200':
+          description: Service sended successfully
+        "404":
+          description: Service id doesn´t exist
+    
+    put:
+      tags:
+      - Services
+      summary: Updates an existing service
+      parameters:
+      - in: path
+        type: number
+        name: id
+        description: id of the service to delete
+        required: true
+      - name: service
+        in: body
+        description: service's params to update
+        required: true
+        schema:
+          $ref: "#/definitions/User"
+
+      responses:
+       '200':
+        description: Successfully updated service
+       '404':
+        description: Service not found
+        
+    delete:
+      tags:
+      - Services
+      summary: delete service by id
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        type: number
+        name: id
+        description: id of the service to delete
+        required: true
+      responses:
+        '200':
+          description: Service deleted successfully
+        "404":
+          description: Service id doesn´t exist
+
+securityDefinitions:
+  users_auth:
+    type: "oauth2"
+    authorizationUrl: "http://petstore.swagger.io/oauth/dialog"
+    flow: "implicit"
+    scopes:
+      write:pets: "modify pets in your account"
+      read:pets: "read your pets"
+  api_key:
+    type: "apiKey"
+    name: "api_key"
+    in: "header"
+    
+definitions:
+  User:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      username:
+        type: "string"
+      firstName:
+        type: "string"
+      lastName:
+        type: "string"
+      email:
+        type: "string"
+      password:
+        type: "string"
+      phone:
+        type: "string"
+      userStatus:
+        type: "integer"
+        format: "int32"
+        description: "User Status"
+    xml:
+      name: "User"
+
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
