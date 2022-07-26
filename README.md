@@ -1,4 +1,4 @@
-# introduccion-nosql
+# nosql-mongodb-practice
 
 # Pre-requisites
 - Install [Node.js](https://nodejs.org/en/) 
@@ -8,11 +8,11 @@
 # Getting started
 - Clone the repository
 ```
-git clone  <git lab template url> <project_name>
+git clone  https://github.com/rios-matias/nosql-mongodb-practice
 ```
 - Install dependencies
 ```
-cd <project_name>
+cd nosql-mongodb-practice
 npm install
 ```
 - Run the project
@@ -21,11 +21,15 @@ npm start
 ```
   Navigate to `http://localhost:8000`
 
-- API Document endpoints
+- Swagger endpoints
 
   swagger Spec Endpoint : http://localhost:8000/api-docs 
 
   swagger-ui  Endpoint : http://localhost:8000/docs 
+  
+- API Enpoints
+  
+  
 
 
 # Javascript Script + Node + MongoDB
