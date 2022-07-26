@@ -1,4 +1,4 @@
-const serviceSchema = require('../models/service')
+import serviceSchema from '../models/service'
 
 const getAllServices = async(req, res) => {
     serviceSchema
@@ -20,7 +20,7 @@ const newService = async(req, res) => {
     const newService = serviceSchema(req.body);
     newService
         .save()
-        .then((data) => res.status(200).json({ message: "service saved" }))
+        .then(() => res.status(200).json({ message: "service saved" }))
         .catch((error) => res.json({ message: error }));
 };
 const updateService = async(req, res) => {
@@ -28,8 +28,8 @@ const updateService = async(req, res) => {
     const { name, description, price, duration } = req.body;
     serviceSchema
         .updateOne({ _id: id }, { $set: { name, description, price, duration } })
-        .then((data) => res.status(200).json({ message: "service updated succefully" }))
-        .catch((error) => res.status(400).json({ message: "service could not be updated" }));
+        .then(() => res.status(200).json({ message: "service updated succefully" }))
+        .catch((error) => res.status(400).json({ message: error }));
 }
 
 // delete a user
@@ -37,7 +37,7 @@ const deleteService = async(req, res) => {
     const { id } = req.params;
     serviceSchema
         .remove({ _id: id })
-        .then((data) => res.status(200).json({ message: "service deleted succesfully" }))
+        .then(() => res.status(200).json({ message: "service deleted succesfully" }))
         .catch((error) => res.statusjson(400).json({ message: "service could not be deleted" }));
 }
 module.exports = { getAllServices, getServiceById, newService, updateService, deleteService }

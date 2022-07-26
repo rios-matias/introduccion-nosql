@@ -4,8 +4,9 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "node src/server.js",
-        "dev": "nodemon src/server.js"
+        "start": "node build/server.js",
+        "dev": "nodemon --exec babel-node src/server.js",
+        "build": "babel src/ --out-dir build"
     },
     "repository": {
         "type": "git",
@@ -24,5 +25,12 @@
         "mongoose": "^6.4.4",
         "swagger-jsdoc": "^6.2.1",
         "swagger-ui-express": "^4.5.0"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.18.9",
+        "@babel/core": "^7.18.9",
+        "@babel/node": "^7.18.9",
+        "@babel/preset-env": "^7.18.9",
+        "nodemon": "^2.0.19"
     }
 }
