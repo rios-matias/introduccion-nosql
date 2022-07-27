@@ -1,6 +1,6 @@
-import  servicesRouter from './routes/services'
+import servicesRouter from './routes/services'
 import connectToDatabase from './databaseConnection'
-import  express from "express"
+import express from 'express'
 
 const app = express()
 const port = process.env.PORT || 8000
@@ -8,14 +8,12 @@ const port = process.env.PORT || 8000
 // middlewares
 app.use(express.json())
 
-//routes
+// routes
 app.use('/services', servicesRouter)
 
 connectToDatabase()
 
 // server listening
-app.listen(port,
-    () => {
-        
-        console.log("Server listening to ", port)
-    })
+app.listen(port, () => {
+  console.log('Server listening to ', port)
+})
